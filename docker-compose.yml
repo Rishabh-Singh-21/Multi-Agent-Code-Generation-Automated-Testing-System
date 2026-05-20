@@ -9,6 +9,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./:/app
+    environment:
+      - DOCKER_IMAGE=macgats-sandbox:latest
+    depends_on:
+      - sandbox-image
   frontend:
     build:
       context: .
@@ -17,3 +21,9 @@ services:
       - "8501:8501"
     depends_on:
       - api
+
+  sandbox-image:
+    image: macgats-sandbox:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sandbox

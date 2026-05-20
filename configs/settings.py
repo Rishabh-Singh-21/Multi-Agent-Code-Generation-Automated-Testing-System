@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     groq_model: str = "llama-3.1-70b-versatile"
     database_url: str = "sqlite:///./data/sessions.db"
     generated_root: str = "generated_sessions"
-    docker_image: str = "python:3.11-slim"
+    docker_image: str = "macgats-sandbox:latest"
     docker_timeout_seconds: int = 90
     max_retries: int = 3
 
