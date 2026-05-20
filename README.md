@@ -27,7 +27,8 @@ Production-grade autonomous workflow using FastAPI + Streamlit + multi-agent orc
 - Multi-agent orchestration
 - Shared context and agent communication logs
 - Retry loop with debug + reflection cycle
-- Docker-isolated execution with timeout and restricted networking
+- Docker-isolated execution with timeout, strict memory/PID limits, read-only filesystem and restricted networking
+- Secure Python sandbox with dangerous-pattern blocking, isolated temp workspaces, and structured execution results
 - Test coverage extraction from coverage report
 - Code quality scoring using radon complexity
 - Session persistence in SQLite
@@ -63,7 +64,7 @@ GEMINI_API_KEY=
 GEMINI_MODEL=gemini-1.5-flash
 GROQ_API_KEY=
 GROQ_MODEL=llama-3.1-70b-versatile
-DOCKER_IMAGE=python:3.11-slim
+DOCKER_IMAGE=macgats-sandbox:latest
 DOCKER_TIMEOUT_SECONDS=90
 MAX_RETRIES=3
 DATABASE_URL=sqlite:///./data/sessions.db
